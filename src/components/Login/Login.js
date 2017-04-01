@@ -11,11 +11,11 @@ class Login extends Component {
     };
   }
 
-  // componentWillMount() {
-  //   if (localStorage.getItem('token')) {
-  //       browserHistory.push('/menu_create');
-  //   }
-  // }
+  componentWillMount() {
+    if (localStorage.getItem('token')) {
+        browserHistory.push('/menu_create');
+    }
+  }
 
   handleChange(event){
     let newState = update(this.state, {
@@ -33,19 +33,20 @@ class Login extends Component {
   handleSubmit(event) {
     event.preventDefault();
     fetch('http://localhost:8000/restaurant/login', {
-        method: 'POST',
-        body: JSON.stringify(this.state),
-        headers: {
-          'Content-type': 'application/json'
-        }
+      method: 'POST',
+      body: JSON.stringify(this.state),
+      headers: {
+        'Content-type': 'application/json'
+      }
     })
     .then((results) => {
-      results.json().then((jwt) => {
-        let authRestaurant = jwt.restaurant;
+      console.log(results);
+      results.json()
+      .then(jwt => {
         window.localStorage.setItem('token', jwt.token);
-        window.localStorage.setItem('restaurant', JSON.stringify(authRestaurant));
-        console.log('Local Restaurant User:', authRestaurant);
-
+        window.localStorage.setItem('restaurant', JSON.stringify(jwt.restaurant));
+        // window.localStorage.setItem('restaurant_name', jwt.restaurant_name);
+        // window.localStorage.setItem('restaurant_id', jwt.id);
         browserHistory.push('/menu_create');
       });
     })

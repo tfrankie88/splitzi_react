@@ -11,6 +11,12 @@ class NewRestaurant extends Component {
     }
   }
 
+  componentWillMount() {
+    if (localStorage.getItem('token')) {
+        browserHistory.push('/login');
+    }
+  }
+
   handleChange(event) {
     let newState = update(this.state, {
       restaurant: {
@@ -25,7 +31,7 @@ class NewRestaurant extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    console.log('in HS', this.state)
+    // console.log('in HS', this.state)
     fetch('http://localhost:8000/restaurant/sign_up', {
       method: 'POST',
       body: JSON.stringify(this.state),
@@ -34,19 +40,18 @@ class NewRestaurant extends Component {
       }
     })
     .then((results) => {
-      console.log(results);
       results.json().then((jwt) => {
-        console.log(jwt);
         let authRestaurant = jwt.restaurant;
         window.localStorage.setItem('token', jwt.token);
         window.localStorage.setItem('restaurant', JSON.stringify(authRestaurant));
-        browserHistory.push('/menu_create');
+        browserHistory.push('/login');
       })
     })
     .catch(() => {
       alert('Not authenticated!');
     });
   }
+
   render(){
     return(
       <div>
@@ -73,7 +78,7 @@ class NewRestaurant extends Component {
           <div className="">
             <input type="text" name="postal" placeholder="postal" onChange={this.handleChange.bind(this)}></input>
           </div>
-          <button href="/menu_create" type="submit">Submit</button>
+          <button href="/login" type="submit">Submit</button>
         </form>
       </div>
     )
