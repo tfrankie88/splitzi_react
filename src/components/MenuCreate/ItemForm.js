@@ -7,19 +7,20 @@ class ItemForm extends Component {
     super(props)
 
     this.state = {
-      menu: {
-        item: '',
-        price: ''
-      }
+      item: '',
+      price: ''
     };
   }
 
-  handleChange(event) {
+  handleSubmit(e){
+    e.preventDefault();
+    this.props.databaseSubmit(this.state)
+  }
+
+  handleItemInput(event) {
     let newState = update(this.state, {
-      menu: {
-        $merge: {
-          [event.target.name]: event.target.value
-        }
+      $merge: {
+        [event.target.name]: event.target.value
       },
     })
   };
@@ -27,20 +28,19 @@ class ItemForm extends Component {
   render() {
     return(
       <div>
-        <form onSubmit={this.handleSubmit.bind(this)} className="">
-          <input
-            name="item"
-            type="text"
-            placeholder="menu item"
-            onChange={this.handleChange.bind(this)}>
-          </input>
-          <input
-            name="price"
-            type="text"
-            placeholder="price"
-            onChange={this.handleChange.bind(this)}>
-          </input>
-        </form>
+        <input
+          name="item"
+          type="text"
+          placeholder="menu item"
+          onChange={this.handleItemInput.bind(this)}>
+        </input>
+        <input
+          name="price"
+          type="text"
+          placeholder="price"
+          onChange={this.handleItemInput.bind(this)}>
+        </input>
+        <button onClick={this.handleSubmit.bind(this)}>Submit</button>
       </div>
     )
   }
