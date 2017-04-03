@@ -26,13 +26,15 @@ class LandingPage extends Component {
 
   render() {
     return(
-      <div>
-        <h1>splitzi</h1>
-        <div className="lp-login link">
-          <Link to='/login'>login</Link><br/>
-          <Link to='/sign_up'>sign up restaurant</Link>
+      <div className="landing-page">
+        <div className="logo-content">
+          <h1 className="logo"></h1>
+          <div className="lp-login link">
+            <Link to='/login'>login</Link><br/>
+            <Link to='/sign_up'>sign up restaurant</Link>
+          </div>
+          {/* <button className="logoutButton" onClick={this.logout.bind(this)}>Logout</button> */}
         </div>
-        <button className="logoutButton" onClick={this.logout.bind(this)}>Logout</button>
       </div>
     )
   }

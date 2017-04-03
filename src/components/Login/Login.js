@@ -58,7 +58,7 @@ class Login extends Component {
   render(){
     return(
       <div id="login-page-div">
-        <form onSubmit={this.handleSubmit.bind(this)}>
+        <form className="login-form" onSubmit={this.handleSubmit.bind(this)}>
           <input placeholder="Email" name='email' type="email" onChange={this.handleChange.bind(this)}></input>
           <input placeholder="Password" name="password" type="password" onChange={this.handleChange.bind(this)}></input>
           <input type="submit"></input>

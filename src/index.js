@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import { Route, Router, browserHistory } from 'react-router';
 
+import './Style/Style.css';
+
 import LandingPage from './components/LandingPage/LandingPage';
 import Login from './components/Login/Login';
 import MenuCreate from './components/MenuCreate/MenuCreate';

@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { browserHistory } from "react-router";
 import update from 'react-addons-update';
 
+import Navigation from '../Navigation/Navigation';
 // import ItemForm from './ItemForm';
 
 class MenuCreate extends Component {
@@ -75,6 +76,7 @@ class MenuCreate extends Component {
   render(){
     return(
       <div>
+        <Navigation />
         <div>
           <div>add items to... {this.state.restaurant.restaurant_name}</div>
         </div>
