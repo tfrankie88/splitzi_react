@@ -42,7 +42,6 @@ class MenuCreate extends Component {
   handleSubmit(event) {
     event.preventDefault();
     console.log('handleSubmit is active');
-
     fetch(`http://localhost:8000/menu/${this.state.restaurant_id}/menu`, {
       method: "POST",
       body: JSON.stringify({
@@ -53,8 +52,7 @@ class MenuCreate extends Component {
       }
     })
     .then(() => {
-      // browserHistory.push('/menu_create');
-      console.log('in then statement')
+      browserHistory.push('/menu_create');
     })
     .catch((err) => {
       console.log(err);
@@ -77,24 +75,29 @@ class MenuCreate extends Component {
     return(
       <div>
         <NavigationRestaurant />
-        <div>
-          <div>add items to... {this.state.restaurant.restaurant_name}</div>
+        <div className="content-container">
+          <div className="add-items-title">
+            add items to...<br/>
+            <span>{this.state.restaurant.restaurant_name}</span>
+          </div>
+          <div className="menu-item-form">
+            <form onSubmit={this.handleSubmit.bind(this)}>
+              <input
+                name="item"
+                type="text"
+                placeholder="menu item"
+                onChange={this.handleChange.bind(this)}>
+              </input>
+              <input
+                name="price"
+                type="text"
+                placeholder="price"
+                onChange={this.handleChange.bind(this)}>
+              </input>
+              <button type="submit">Submit</button>
+            </form>
+          </div>
         </div>
-        <form onSubmit={this.handleSubmit.bind(this)}>
-          <input
-            name="item"
-            type="text"
-            placeholder="menu item"
-            onChange={this.handleChange.bind(this)}>
-          </input>
-          <input
-            name="price"
-            type="text"
-            placeholder="price"
-            onChange={this.handleChange.bind(this)}>
-          </input>
-          <button type="submit">Submit</button>
-        </form>
       </div>
     )
   }

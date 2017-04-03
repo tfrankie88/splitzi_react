@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import update from 'react-addons-update';
 import { browserHistory } from 'react-router';
 
+import NavigationSplitIt from '../Navigation/NavigationSplitIt';
+
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -57,12 +59,15 @@ class Login extends Component {
 
   render(){
     return(
-      <div id="login-page-div">
-        <form className="login-form" onSubmit={this.handleSubmit.bind(this)}>
-          <input placeholder="Email" name='email' type="email" onChange={this.handleChange.bind(this)}></input>
-          <input placeholder="Password" name="password" type="password" onChange={this.handleChange.bind(this)}></input>
-          <input type="submit"></input>
-        </form>
+      <div>
+        <NavigationSplitIt />
+        <div id="login-page-div">
+          <form className="login-form" onSubmit={this.handleSubmit.bind(this)}>
+            <input placeholder="Email" name='email' type="email" onChange={this.handleChange.bind(this)}></input>
+            <input placeholder="Password" name="password" type="password" onChange={this.handleChange.bind(this)}></input>
+            <input type="submit"></input>
+          </form>
+        </div>
       </div>
     )
   }

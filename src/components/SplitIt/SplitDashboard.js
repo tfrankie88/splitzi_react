@@ -45,14 +45,18 @@ class SplitDashboard extends Component {
     return(
       <div>
         <NavigationSplitIt />
-        <div>
-          <h1>where did you eat?</h1>
-          <RestaurantSearch
-            searchRestaurant={this.searchRestaurant.bind(this)}
-          />
-          <MenuList
-            menu={this.state.menu}
-          />
+        <div className="content-container">
+          <h1 className="search-items-title">where did you <span>eat?</span></h1>
+          <div>
+            <RestaurantSearch
+              searchRestaurant={this.searchRestaurant.bind(this)}
+            />
+          </div>
+          <div className="item-cards-container">
+            <MenuList
+              menu={this.state.menu}
+            />
+          </div>
         </div>
       </div>
     )

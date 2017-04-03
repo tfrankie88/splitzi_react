@@ -34,20 +34,17 @@ class NavigationRestaurant extends Component {
 
   render() {
     return(
-      <div className="nav-header">
-        <header>
-          <h1>splitzi</h1>
+      <header>
+        <h1 className="logo-nav">
+          <Link to="/">{<img src="../img/splitzi_logo_white.svg" width="125px"/>}</Link>
+        </h1>
+        <nav className="nav-column">
           <div className="navTitle">
-            <h2> hey, {this.state.restaurant.first_name}</h2>
+            <h2> heya, &nbsp; {this.state.restaurant.first_name}</h2>
           </div>
-          <nav className="nav-column">
-            <div className="collection">
-              <Link className="collection-item " to="/dashboard">Home</Link>
-            </div>
-            <button className="logoutButton" onClick={this.logout.bind(this)}>Logout</button>
-          </nav>
-        </header>
-      </div>
+          <button className="logout-button" onClick={this.logout.bind(this)}>Logout</button>
+        </nav>
+      </header>
     )
   }
 }

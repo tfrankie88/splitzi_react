@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-
 import { Link, browserHistory } from "react-router";
 
 class NavigationSplitIt extends Component {
@@ -15,7 +14,11 @@ class NavigationSplitIt extends Component {
         </h1>
         <nav className="nav-column">
           <div className="collection">
-            <Link className="collection-item " to="/">restaurant sign up</Link>
+            <div className="collection-item">restaurant owner?</div>
+            <div>
+              <Link className="collection-item" to="/login">login &nbsp;</Link>• &nbsp;
+              <Link className="collection-item" to="/sign_up">sign up</Link>
+            </div>
           </div>
         </nav>
       </header>
