@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import { Link, browserHistory } from "react-router";
 
-class Navigation extends Component {
+class NavigationRestaurant extends Component {
   constructor(props) {
     super(props);
 
@@ -35,19 +35,21 @@ class Navigation extends Component {
   render() {
     return(
       <div className="nav-header">
-        <nav>
+        <header>
           <h1>splitzi</h1>
           <div className="navTitle">
             <h2> hey, {this.state.restaurant.first_name}</h2>
           </div>
-          <div className="collection">
-            <Link className="collection-item " to="/dashboard">Home</Link>
-          </div>
-          <button className="logoutButton" onClick={this.logout.bind(this)}>Logout</button>
-        </nav>
+          <nav className="nav-column">
+            <div className="collection">
+              <Link className="collection-item " to="/dashboard">Home</Link>
+            </div>
+            <button className="logoutButton" onClick={this.logout.bind(this)}>Logout</button>
+          </nav>
+        </header>
       </div>
     )
   }
 }
 
-export default Navigation;
+export default NavigationRestaurant;

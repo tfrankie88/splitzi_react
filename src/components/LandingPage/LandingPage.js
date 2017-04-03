@@ -6,7 +6,6 @@ class LandingPage extends Component {
     super(props);
   }
 
-
   componentWillMount() {
     if (localStorage.getItem('token')) {
       window.localStorage.removeItem('token');
@@ -30,7 +29,8 @@ class LandingPage extends Component {
         <div className="logo-content">
           <h1 className="logo"></h1>
           <div className="lp-login link">
-            <Link to='/login'>login</Link><br/>
+            <Link to='/split_dashboard'>gotta split?</Link><br/>
+            <Link to='/login'>restaurant owner login</Link><br/>
             <Link to='/sign_up'>sign up restaurant</Link>
           </div>
           {/* <button className="logoutButton" onClick={this.logout.bind(this)}>Logout</button> */}
