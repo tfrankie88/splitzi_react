@@ -9,7 +9,15 @@ class NewRestaurant extends Component {
     super(props);
 
     this.state = {
-      restaurant: {}
+      restaurant: {
+        first_name: '',
+        last_name: '',
+        email: '',
+        password_digest: '',
+        restaurant_name: '',
+        country: '',
+        postal: ''
+      }
     }
   }
 
@@ -27,31 +35,28 @@ class NewRestaurant extends Component {
         }
       }
     })
-
     this.setState(newState);
   }
 
   handleSubmit(event) {
     event.preventDefault();
-    // console.log('in HS', this.state)
-    fetch('http://localhost:8000/restaurant/sign_up', {
-      method: 'POST',
-      body: JSON.stringify(this.state),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-    .then((results) => {
-      results.json().then((jwt) => {
-        let authRestaurant = jwt.restaurant;
-        window.localStorage.setItem('token', jwt.token);
-        window.localStorage.setItem('restaurant', JSON.stringify(authRestaurant));
+    if (this.state.restaurant.email !== '' && this.state.restaurant.password_digest !== '') {
+      fetch('http://localhost:8000/restaurant/sign_up', {
+        method: 'POST',
+        body: JSON.stringify(this.state),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      .then((results) => {
         browserHistory.push('/login');
       })
-    })
-    .catch(() => {
-      alert('Not authenticated!');
-    });
+      .catch(() => {
+        alert('Not authenticated!');
+      });
+    } else {
+      alert('please fill out entire application')
+    }
   }
 
   render(){

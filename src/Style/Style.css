@@ -144,6 +144,10 @@ header a:visited {
   width: 300px;
   height: 300px;
 }
+
+.landingpage-login {
+  text-align: center;
+}
 /*********************
   END Landing Page styling
 **********************/

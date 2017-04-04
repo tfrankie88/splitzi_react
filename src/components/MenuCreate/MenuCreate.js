@@ -12,7 +12,10 @@ class MenuCreate extends Component {
 
     this.state = {
       restaurant: {},
-      menu: {},
+      menu: {
+        item: '',
+        price: ''
+      },
       restaurant_id: ""
     };
   }
@@ -41,22 +44,31 @@ class MenuCreate extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    console.log('handleSubmit is active');
-    fetch(`http://localhost:8000/menu/${this.state.restaurant_id}/menu`, {
-      method: "POST",
-      body: JSON.stringify({
-        menu: this.state.menu
-      }),
-      headers: {
-        "Content-Type": 'application/json'
-      }
-    })
-    .then(() => {
-      browserHistory.push('/menu_create');
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+    if (this.state.menu.item !== '' && this.state.menu.price !== '') {
+      console.log('handleSubmit is active');
+      fetch(`http://localhost:8000/menu/${this.state.restaurant_id}/menu`, {
+        method: "POST",
+        body: JSON.stringify({
+          menu: this.state.menu
+        }),
+        headers: {
+          "Content-Type": 'application/json'
+        }
+      })
+      .then(() => {
+        this.setState({
+          menu: {
+            item: '',
+            price: ''
+          }
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    } else {
+      alert('please add menu item & price')
+    }
   }
 
   // renderItemForm() {
@@ -83,12 +95,14 @@ class MenuCreate extends Component {
           <div className="menu-item-form">
             <form onSubmit={this.handleSubmit.bind(this)}>
               <input
+                value={this.state.menu.item}
                 name="item"
                 type="text"
                 placeholder="menu item"
                 onChange={this.handleChange.bind(this)}>
               </input>
               <input
+                value={this.state.menu.price}
                 name="price"
                 type="text"
                 placeholder="price"

@@ -28,8 +28,8 @@ class LandingPage extends Component {
       <div className="landing-page">
         <div className="logo-content">
           <h1 className="logo"></h1>
-          <div className="lp-login link">
-            <Link to='/split_dashboard'>gotta split?</Link><br/>
+          <div className="landingpage-login">
+            <Link to='/split_dashboard'><span>gotta split?</span></Link><br/>
             <Link to='/login'>restaurant owner login</Link><br/>
             <Link to='/sign_up'>sign up restaurant</Link>
           </div>
