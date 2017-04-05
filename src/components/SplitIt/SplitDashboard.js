@@ -11,7 +11,8 @@ class SplitDashboard extends Component {
     super();
 
     this.state = {
-      menu: []
+      menu: [],
+      cart: 0
     };
   }
 
@@ -28,18 +29,25 @@ class SplitDashboard extends Component {
     fetch(`http://localhost:8000/restaurant/name/${term}`)
     .then(r => r.json())
     .then((data) => {
-      console.log(data);
+      // console.log(data);
       // this.setState({ menuItems: data.search })
       fetch(`http://localhost:8000/menu/${data.id}/menu`)
       .then(r => r.json())
       .then((menuData) => {
-        console.log(menuData);
+        // console.log(menuData);
         this.setState({ menu: menuData });
         // console.log('this is state', this.state.menuItems[0]);
       })
     })
     .catch(err => console.log('ERROR', err));
   };
+
+    addToCart(){
+      this.setState({cart: this.state.cart + 1}, () => {
+        console.log("this is the cart", this.state.cart);
+      })
+
+    }
 
   render() {
     return(
@@ -55,6 +63,7 @@ class SplitDashboard extends Component {
           <div className="item-cards-container">
             <MenuList
               menu={this.state.menu}
+              addToCart={this.addToCart.bind(this)}
             />
           </div>
         </div>
