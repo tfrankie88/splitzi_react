@@ -41,7 +41,7 @@ class NewRestaurant extends Component {
   handleSubmit(event) {
     event.preventDefault();
     if (this.state.restaurant.email !== '' && this.state.restaurant.password_digest !== '') {
-      fetch('http://localhost:8000/restaurant/sign_up', {
+      fetch('https://splitzi-api.herokuapp.com/restaurant/sign_up', {
         method: 'POST',
         body: JSON.stringify(this.state),
         headers: {

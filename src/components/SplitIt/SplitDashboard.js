@@ -26,12 +26,12 @@ class SplitDashboard extends Component {
   }
 
   searchRestaurant(term) {
-    fetch(`http://localhost:8000/restaurant/name/${term}`)
+    fetch(`https://splitzi-api.herokuapp.com/restaurant/name/${term}`)
     .then(r => r.json())
     .then((data) => {
       // console.log(data);
       // this.setState({ menuItems: data.search })
-      fetch(`http://localhost:8000/menu/${data.id}/menu`)
+      fetch(`https://splitzi-api.herokuapp.com/menu/${data.id}/menu`)
       .then(r => r.json())
       .then((menuData) => {
         // console.log(menuData);

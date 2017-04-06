@@ -34,7 +34,7 @@ class Login extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    fetch('http://localhost:8000/restaurant/login', {
+    fetch('https://splitzi-api.herokuapp.com/restaurant/login', {
       method: 'POST',
       body: JSON.stringify(this.state),
       headers: {
