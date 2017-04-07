@@ -3,6 +3,7 @@ import ReactDom from 'react-dom';
 import { Route, Router, browserHistory } from 'react-router';
 
 import './Style/Style.css';
+// import './img';
 
 import LandingPage from './components/LandingPage/LandingPage';
 import Login from './components/Login/Login';
