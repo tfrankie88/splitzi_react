@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import { Link, browserHistory } from "react-router";
-import Logo from "../img/splitzi_logo_white.svg";
+import { Logo } from "../img/splitzi_logo_white.svg";
 
 class NavigationRestaurant extends Component {
   constructor(props) {
