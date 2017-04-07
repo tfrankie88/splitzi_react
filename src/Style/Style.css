@@ -117,6 +117,12 @@ header a:visited {
   height: 30px;
   margin-bottom: 5px;
 }
+
+.navigation-logo-img {
+  background: url("../img/splitzi_logo_white.svg");
+  background-size: cover;
+  width: 125px;
+}
 /********************
   END of Navigation
 *********************/
