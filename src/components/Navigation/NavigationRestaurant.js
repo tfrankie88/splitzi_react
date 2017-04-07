@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Link, browserHistory } from "react-router";
-import logo from "./img/splitzi_logo_white.svg";
 
 class NavigationRestaurant extends Component {
   constructor(props) {
@@ -36,7 +35,7 @@ class NavigationRestaurant extends Component {
     return(
       <header>
         <h1 className="logo-nav">
-          <Link to="/"><img src={ logo } width="125px"/></Link>
+          <Link to="/"><img src={require("../img/splitzi_logo_white.svg")} width="125px"/></Link>
         </h1>
         <nav className="nav-column">
           <div className="navTitle">
