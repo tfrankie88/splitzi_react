@@ -10,7 +10,7 @@ class NavigationSplitIt extends Component {
     return(
       <header>
         <h1 className="logo-nav">
-          <Link to="/">{<img src="../img/splitzi_logo_white.svg" width="125px"/>}</Link>
+          <Link to="/"><div className="navigation-logo-img"></div></Link>
         </h1>
         <nav className="nav-column">
           <div className="collection">
