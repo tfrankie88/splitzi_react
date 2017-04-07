@@ -3,13 +3,13 @@ import MenuItem from './MenuItem';
 
 class MenuList extends Component {
   constructor(props){
-    super(props)
+    super(props);
   }
 
   render(){
 
     let menu = this.props.menu.map((menuItem) => {
-      console.log('this is menuItem', menuItem)
+      // console.log('this is menuItem', menuItem)
       return (
         <MenuItem
           key={menuItem.id}
@@ -22,13 +22,11 @@ class MenuList extends Component {
     });
 
 
-
-
     return (
       <div className="menu-item-container">
         {menu}
       </div>
-    )
+    );
   }
 }
 

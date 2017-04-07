@@ -11,7 +11,7 @@ class MenuItem extends Component {
         <h2 className="item-name">{this.props.item}</h2>
         <div className="item-price">{this.props.price} </div>
       </div>
-    )
+    );
   }
 }
  export default MenuItem;

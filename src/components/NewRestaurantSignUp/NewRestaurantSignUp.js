@@ -18,7 +18,7 @@ class NewRestaurant extends Component {
         country: '',
         postal: ''
       }
-    }
+    };
   }
 
   componentWillMount() {
@@ -34,7 +34,7 @@ class NewRestaurant extends Component {
           [event.target.name]: event.target.value
         }
       }
-    })
+    });
     this.setState(newState);
   }
 
@@ -48,14 +48,14 @@ class NewRestaurant extends Component {
           'Content-Type': 'application/json'
         }
       })
-      .then((results) => {
+      .then(() => {
         browserHistory.push('/login');
       })
       .catch(() => {
         alert('Not authenticated!');
       });
     } else {
-      alert('please fill out entire application')
+      alert('please fill out entire application');
     }
   }
 
@@ -77,7 +77,7 @@ class NewRestaurant extends Component {
           </form>
         </div>
       </div>
-    )
+    );
   }
 }
 

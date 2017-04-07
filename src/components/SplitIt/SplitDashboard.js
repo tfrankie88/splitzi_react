@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { browserHistory } from "react-router";
-import { Link } from 'react-router';
 
 import NavigationSplitIt from '../Navigation/NavigationSplitIt';
 import RestaurantSearch from './RestaurantSearch';
@@ -30,7 +28,7 @@ class SplitDashboard extends Component {
     .then(r => r.json())
     .then((data) => {
       // console.log(data);
-      // this.setState({ menuItems: data.search })
+      this.setState({ menuItems: data.search })
       fetch(`https://splitzi-api.herokuapp.com/menu/${data.id}/menu`)
       .then(r => r.json())
       .then((menuData) => {
@@ -40,14 +38,13 @@ class SplitDashboard extends Component {
       })
     })
     .catch(err => console.log('ERROR', err));
-  };
+  }
 
-    addToCart(){
-      this.setState({cart: this.state.cart + 1}, () => {
-        console.log("this is the cart", this.state.cart);
-      })
-
-    }
+  addToCart(){
+    this.setState({cart: this.state.cart + 1}, () => {
+      // console.log("this is the cart", this.state.cart);
+    });
+  }
 
   render() {
     return(
@@ -68,7 +65,7 @@ class SplitDashboard extends Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 

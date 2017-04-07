@@ -18,9 +18,9 @@ class NavigationRestaurant extends Component {
       browserHistory.push('/login');
     } else {
       let restaurantObj = JSON.parse(window.localStorage.restaurant);
-      console.log('RESTA obj: ',restaurantObj);
+      // console.log('RESTA obj: ',restaurantObj);
       this.setState({restaurant: restaurantObj});
-      this.setState({restaurant_id: restaurantObj.id})
+      this.setState({restaurant_id: restaurantObj.id});
     }
   }
 
@@ -29,7 +29,7 @@ class NavigationRestaurant extends Component {
     window.localStorage.removeItem('restaurant_id');
     window.localStorage.removeItem('restaurant_name');
     browserHistory.push('/');
-    console.log('logged-out');
+    // console.log('logged-out');
   }
 
   render() {
@@ -45,7 +45,7 @@ class NavigationRestaurant extends Component {
           <button className="logout-button" onClick={this.logout.bind(this)}>Logout</button>
         </nav>
       </header>
-    )
+    );
   }
 }
 

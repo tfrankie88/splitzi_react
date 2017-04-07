@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link, browserHistory } from "react-router";
+import { Link } from "react-router";
 
 class NavigationSplitIt extends Component {
   constructor(props) {
@@ -22,7 +22,7 @@ class NavigationSplitIt extends Component {
           </div>
         </nav>
       </header>
-    )
+    );
   }
 }
 

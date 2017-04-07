@@ -25,9 +25,9 @@ class MenuCreate extends Component {
       browserHistory.push('/login');
     } else {
       let restaurantObj = JSON.parse(window.localStorage.restaurant);
-      console.log('RESTA obj: ',restaurantObj);
+      // console.log('RESTA obj: ',restaurantObj);
       this.setState({restaurant: restaurantObj});
-      this.setState({restaurant_id: restaurantObj.id})
+      this.setState({restaurant_id: restaurantObj.id});
     }
   }
 
@@ -45,7 +45,7 @@ class MenuCreate extends Component {
   handleSubmit(event) {
     event.preventDefault();
     if (this.state.menu.item !== '' && this.state.menu.price !== '') {
-      console.log('handleSubmit is active');
+      // console.log('handleSubmit is active');
       fetch(`https://splitzi-api.herokuapp.com/${this.state.restaurant_id}/menu`, {
         method: "POST",
         body: JSON.stringify({
@@ -67,7 +67,7 @@ class MenuCreate extends Component {
         console.log(err);
       });
     } else {
-      alert('please add menu item & price')
+      alert('please add menu item & price');
     }
   }
 
@@ -113,7 +113,7 @@ class MenuCreate extends Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 
 }

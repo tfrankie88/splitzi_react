@@ -5,7 +5,7 @@ class RestaurantSearch extends Component {
     super();
     this.state = {
       search: ''
-    }
+    };
   }
 
   handleRestaurantSubmit(event) {
@@ -27,7 +27,7 @@ class RestaurantSearch extends Component {
         /><br/>
         <input type="submit" value="search"/>
       </form>
-    )
+    );
   }
 }
 
