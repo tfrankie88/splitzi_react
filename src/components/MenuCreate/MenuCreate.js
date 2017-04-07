@@ -46,7 +46,7 @@ class MenuCreate extends Component {
     event.preventDefault();
     if (this.state.menu.item !== '' && this.state.menu.price !== '') {
       // console.log('handleSubmit is active');
-      fetch(`https://splitzi-api.herokuapp.com/${this.state.restaurant_id}/menu`, {
+      fetch(`https://splitzi-api.herokuapp.com/menu/${this.state.restaurant_id}/menu`, {
         method: "POST",
         body: JSON.stringify({
           menu: this.state.menu

@@ -27,14 +27,15 @@ class SplitDashboard extends Component {
     fetch(`https://splitzi-api.herokuapp.com/restaurant/name/${term}`)
     .then(r => r.json())
     .then((data) => {
-      // console.log(data);
+      console.log('this is data from first fetch', data);
       this.setState({ menuItems: data.search })
+      console.log('this is data.id', data.id)
       fetch(`https://splitzi-api.herokuapp.com/menu/${data.id}/menu`)
       .then(r => r.json())
       .then((menuData) => {
-        // console.log(menuData);
+        console.log(menuData);
         this.setState({ menu: menuData });
-        // console.log('this is state', this.state.menuItems[0]);
+        console.log('this is state menu state', this.state.menuItems[0]);
       })
     })
     .catch(err => console.log('ERROR', err));

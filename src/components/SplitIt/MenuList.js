@@ -9,7 +9,7 @@ class MenuList extends Component {
   render(){
 
     let menu = this.props.menu.map((menuItem) => {
-      // console.log('this is menuItem', menuItem)
+      console.log('this is menuItem', menuItem)
       return (
         <MenuItem
           key={menuItem.id}
