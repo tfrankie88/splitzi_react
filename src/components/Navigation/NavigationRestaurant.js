@@ -35,7 +35,7 @@ class NavigationRestaurant extends Component {
     return(
       <header>
         <h1 className="logo-nav">
-          <Link to="/"><div className="navigavtion-logo-img"</div></Link>
+          <Link to="/"><div className="navigavtion-logo-img"></div></Link>
         </h1>
         <nav className="nav-column">
           <div className="navTitle">
