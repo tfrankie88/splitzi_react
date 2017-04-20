@@ -27,6 +27,11 @@ span {
   font-size: 1.3em;
   color: #c93222;
 }
+
+a {
+  text-decoration: none;
+}
+
 a:visited {
   color: #666;
 }
