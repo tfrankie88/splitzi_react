@@ -28,7 +28,7 @@
   "author": "norrin_radd",
   "license": "MIT",
   "dependencies": {
-    "express": "4.15.2",
+    "express": "4.17.3",
     "object-assign": "4.1.0",
     "react": "15.4.1",
     "react-addons-update": "15.4.2",
